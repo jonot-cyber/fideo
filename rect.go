@@ -35,7 +35,7 @@ func (r Rectangle) GetRect() image.Rectangle {
 	return image.Rect(
 		r.Position.X,
 		r.Position.Y,
-		r.Size.X,
-		r.Size.Y,
+		r.Position.X+r.Size.X,
+		r.Position.Y+r.Size.Y,
 	)
 }
