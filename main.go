@@ -15,7 +15,7 @@ func drawProject() image.NRGBA {
 		Resolution: Vector2{1920, 1080},
 		Main: Group{
 			Size: Vector2{1920, 1080},
-			Children: []Object{
+			Children: []Renderer{
 				Rectangle{
 					Min: Vector2{0, 0},
 					Max: Vector2{500, 500},
