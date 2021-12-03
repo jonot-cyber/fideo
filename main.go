@@ -10,32 +10,37 @@ import (
 )
 
 // Draw the main image. Will be replaced with json later
-func draw() *image.NRGBA {
+func drawProject() image.NRGBA {
 	project := Project{
 		Resolution: Vector2{1920, 1080},
 		Main: Group{
 			Size: Vector2{1920, 1080},
 			Children: []Object{
 				Rectangle{
-					Position: Vector2{100, 100},
-					Size:     Vector2{500, 500},
-					Color:    color.NRGBA{R: 111, G: 188, B: 22, A: math.MaxUint8},
+					Min: Vector2{0, 0},
+					Max: Vector2{500, 500},
+					Color: color.NRGBA{
+						R: 123,
+						G: 126,
+						B: 199,
+						A: math.MaxUint8,
+					},
 				},
 			},
 		},
 	}
-	return project.Main.Render()
+	return project.Draw()
 }
 
 func main() {
-	img := draw()
+	img := drawProject()
 
 	f, err := os.Create("image.png")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	if err := png.Encode(f, img); err != nil {
+	if err := png.Encode(f, &img); err != nil {
 		f.Close()
 		log.Fatal(err)
 	}
