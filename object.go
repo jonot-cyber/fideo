@@ -3,6 +3,5 @@ package main
 import "image"
 
 type Object interface {
-	Render() *image.NRGBA
-	GetRect() image.Rectangle
+	Render(size Vector2) image.NRGBA
 }
